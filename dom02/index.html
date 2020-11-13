@@ -1,0 +1,30 @@
+<button onclick="generateTable()">
+    generate table
+</button>
+<script>
+// create a 2*2 matrix table with text in it
+
+function generateTable() {
+	const body = document.getElementsByTagName('body')[0];
+  
+  // create table and table body
+  const table = document.createElement('table');
+  const tBody = document.createElement('tbody');
+  for (let i=1; i<=5; i++) {
+  	const trow = document.createElement('tr');
+  	for (let j=1; j<=5; j++) {
+    	const tCell = document.createElement('td');
+      const tCellText = document.createTextNode('Sample text');
+      
+      tCell.appendChild(tCellText);
+      trow.appendChild(tCell);
+    }
+    tBody.appendChild(trow);
+  }
+  
+  table.appendChild(tBody);
+  body.appendChild(table);
+  table.setAttribute('border', '5');
+}
+
+</script>
