@@ -1,0 +1,48 @@
+<script>
+const body = document.getElementsByTagName('body')[0];
+const header = document.createElement('h1');
+const headerText = document.createTextNode('My shopping list');
+header.appendChild(headerText);
+body.appendChild(header);
+
+const container = document.createElement('div');
+const label = document.createElement('label');
+const labelText = document.createTextNode('Enter a new item: ');
+const inputField = document.createElement('input');
+const buttonField = document.createElement('button');
+
+buttonField.textContent = 'Add item';
+label.appendChild(labelText);
+container.appendChild(label);
+container.appendChild(inputField);
+container.appendChild(buttonField);
+body.appendChild(container);
+
+const ulContainer = document.createElement('div');
+const ulTag = document.createElement('ul');
+
+ulContainer.appendChild(ulTag);
+body.appendChild(ulContainer);
+
+buttonField.addEventListener('click', () => {
+	addItem();
+});
+
+function addItem() {
+	let myItem = inputField.value;
+  inputField.value = '';
+	const listItem = document.createElement('li');
+  const listText = document.createElement('span');
+  const listBtn = document.createElement('button');
+  listBtn.textContent = 'Delete';
+  listItem.appendChild(listText);
+  listText.textContent = myItem;
+  listItem.appendChild(listBtn);
+  ulTag.appendChild(listItem);
+  
+  listBtn.onclick = function(e) {
+  	ulTag.removeChild(listItem);
+  }
+  inputField.focus();
+}
+</script>
