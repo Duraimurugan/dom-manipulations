@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+}
+
+span::after {
+    position: absolute;
+    content: attr(data-counter);
+    top: 20px;
+    opacity: 2;
+    transition: 2s;
+}
+
+span:hover::after {
+    opacity: 1;
+}
+
+div.rockets {
+    position: absolute;
+	background:url(rocket.PNG) no-repeat;
+	height: 300px; 
+    width: 300px; 
+	top: 200px;
+	transition: left 0s linear 0s;
+}

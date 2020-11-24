@@ -1,0 +1,24 @@
+<section>
+  <h1>A heading</h1>
+
+  <p>a paragraph</p>
+
+  some text
+
+  <hr>
+
+  some text
+</section>
+<script>
+const textNodes = Array.from(document.querySelector('section').childNodes)
+    .filter(node => node.nodeType === 3 && node.textContent.trim().length > 0);
+
+textNodes.forEach(node => {
+	const span = document.createElement('span');
+  node.after(span);
+  span.appendChild(node);
+})
+
+setInterval(() => textNodes.forEach(node => node.textContent = Math.random()), 1000
+)
+</script>

@@ -1,0 +1,109 @@
+<style>
+    /* || general styles */
+
+    html {
+        font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    }
+
+    body {
+        width: 800px;
+        margin: 0 auto;
+    }
+
+    h1,
+    h2 {
+        font-family: 'Faster One', cursive;
+    }
+
+    /* header styles */
+    h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+
+    header p {
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    section article {
+        width: 33%;
+        float: left;
+    }
+
+    section p {
+        margin: 5px 0;
+    }
+
+    section ul {
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        letter-spacing: -5px;
+        margin-bottom: 10px;
+    }
+</style>
+<script>
+    const url = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+    let heroes;
+    const docBody = document.getElementsByTagName('body')[0];
+    const header = document.createElement('header');
+    const section = document.createElement('section');
+    docBody.appendChild(header);
+    docBody.appendChild(section);
+
+    fetch(url)
+        .then(response => {
+            response.json().then((result) => {
+                heroes = result;
+                /* console.log(heroes); */
+                populateHeader(heroes);
+                populateSection(heroes);
+            })
+        });
+
+
+    function populateHeader(obj) {
+        /* console.log(obj); */
+        const headerTag = document.createElement('h1');
+        headerTag.textContent = obj.squadName;
+        const p = document.createElement('p');
+        p.textContent = 'Hometown: ' + obj.homeTown + ' // Formed: ' + obj.formed;
+        header.appendChild(headerTag);
+        header.appendChild(p);
+    }
+
+    function populateSection(heroes) {
+        const members = heroes.members;
+        for (let i = 0; i < members.length; i++) {
+            const myArticle = document.createElement('article');
+            const myH2 = document.createElement('h2');
+            const para1 = document.createElement('p');
+            const para2 = document.createElement('p');
+            const para3 = document.createElement('p');
+            const myList = document.createElement('ul');
+
+            myH2.textContent = members[i].name;
+            para1.textContent = 'secret identity: ' + members[i].secretIdentity;
+            para2.textContent = 'Age: ' + members[i].age;
+            para3.textContent = 'Superpowers: ';
+
+            const superPowers = members[i].powers;
+            for (let j = 0; j < superPowers.length; j++) {
+                const liItem = document.createElement('li');
+                liItem.textContent = superPowers[j];
+                myList.appendChild(liItem);
+            }
+            myArticle.appendChild(myH2);
+            myArticle.appendChild(para1);
+            myArticle.appendChild(para2);
+            myArticle.appendChild(para3);
+            myArticle.appendChild(myList);
+            section.appendChild(myArticle);
+        }
+
+    }
+</script>
