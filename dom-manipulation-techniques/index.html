@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        div {
+            display: flex;
+            margin: 0.5rem;
+            padding: 1rem;
+            border: 3px solid black;
+            min-height: 1rem;
+            flex-grow: 1;
+        }
+
+        .grandparent {
+            background-color: hsl(0, 50%, 50%);
+            flex-direction: column;
+        }
+
+        .parent {
+            background-color: hsl(100, 50%, 50%);
+        }
+
+        .child {
+            background-color: hsl(200, 50%, 50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grandparent" id="grandparent-id">
+        <div class="parent">
+            <div class="child" id="child-one"></div>
+            <div class="child"></div>
+        </div>
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+    </div>
+</body>
+<script>
+    /* const grandparent = document.getElementById('grandparent-id'); */
+    /* const grandparent = document.querySelector('#grandparent-id'); */
+    /* const grandparent = document.querySelector('.grandparent'); */
+
+    /* const parents = Array.from(document.getElementsByClassName('parent')); 
+    /* const parent = document.querySelector('.parent'); */
+    /* const parents = document.querySelectorAll('.parent'); */
+
+    // accessing children
+    /* const parents=  Array.from(grandparent.children); */
+    /* const child = parents[0].children; */
+
+    // accessing parent
+    /* const childOne = document.querySelector('#child-one')
+    const parent = childOne.parentElement; */
+
+    // accessing grandparent
+    /* const childOne = document.querySelector('#child-one')
+    const grandparent = childOne.closest('.grandparent');
+     */
+
+    //accessing sibling
+    const childOne = document.querySelector('#child-one')
+    /* child.forEach(changeColor); */
+    childTwo = childOne.nextElementSibling;
+    changeColor(childTwo);
+
+    function changeColor(element) {
+        element.style.backgroundColor = '#333';
+    }
+</script>
+
+</html>

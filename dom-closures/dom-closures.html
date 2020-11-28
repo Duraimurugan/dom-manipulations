@@ -1,0 +1,25 @@
+<!-- There is a button on a page with text inside that says 'Clicked {#} times' with the number changing each time the button has been clicked.
+Follow up: Now each time the button is clicked, spawn a new button with its own counter, and the same functionality. -->
+
+
+const docBody = document.getElementsByTagName('body')[0];
+const button1 = document.createElement('button');
+const button2 = document.createElement('button');
+let number= 0;
+button1.textContent = 'Clicked ' + number + ' times';
+button2.textContent = 'button ' + number;
+docBody.appendChild(button1);
+docBody.appendChild(button2);
+
+button1.addEventListener('click', () => {
+	number++;
+	button1.textContent = 'Clicked ' + number + ' times';
+});
+
+
+button2.addEventListener('click', () => {
+	number++;
+  const newButton = document.createElement('button');
+	newButton.textContent = 'button ' + number;
+  docBody.appendChild(newButton);
+});
