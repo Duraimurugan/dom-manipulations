@@ -1,0 +1,20 @@
+.rating {
+    display: flex;
+}
+
+.star {
+    height: 50px;
+    width: 50px;
+    border: 1px solid gold;
+    margin: 4px;
+    border-radius: 50%;
+}
+
+.star:hover {
+    background-color: gold;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: gold;
+}
