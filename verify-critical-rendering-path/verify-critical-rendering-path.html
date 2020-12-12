@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Duraimurugan Rajendran">
+    <title>Verify Critical Rendering Path</title>
+</head>
+<body>
+    <div id="wrapper"></div>
+    <button onclick="addItem()"> Add Item</button>
+    <script>
+        const wrapper = document.getElementById('wrapper');
+        function addItem() {
+            const newElement = document.createElement('div');
+            newElement.textContent = "hello";
+            wrapper.appendChild(newElement);
+        }
+    </script>
+</body>
+</html>

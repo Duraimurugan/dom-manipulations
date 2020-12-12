@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+/* ul {
+    padding-left: 0;
+}
+
+li {
+    display: block;
+    width: 25%;
+    height: 80px;
+    background-color: green;
+    color: white;
+    border: 2px solid black;
+    float: left;
+} */
+
+
+ul {
+    display: flex;
+    list-style: none;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+li {
+    height: 100px;
+    width: 200px;
+    background-color: green;
+    color: white;
+    border: 2px solid white;
+}

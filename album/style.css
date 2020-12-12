@@ -1,0 +1,22 @@
+.selected-image {
+    position: relative;
+    width: 640px;
+}
+
+.previous, .next {
+    position: absolute;
+    top: 50%;
+}
+
+.next {
+    right: 0;
+}
+
+.possible-selections {
+    display: flex;
+}
+
+.possible-selections > img {
+    height: 130px;
+    width: 130px;
+}
